@@ -12,9 +12,16 @@ import com.example.to_do_list.databinding.ActivityTaskBinding
 
 class TaskActivity : AppCompatActivity() {
 
+    companion object{
+
+        const val TASK_ID = "TASK_ID"
+    }
+
     lateinit var binding: ActivityTaskBinding
 
     lateinit var taskDAO: TaskDAO
+
+    lateinit var task: Task
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +37,14 @@ class TaskActivity : AppCompatActivity() {
             insets
         }
 
+        val id = intent.getLongExtra(TASK_ID, -1L)
         taskDAO = TaskDAO(this)
+
+        if (id != -1L) {
+            task = taskDAO.findById(id)!!
+        } else {
+            task = Task (-1, "")
+        }
 
         binding.saveButton.setOnClickListener {
             val title = binding.taskTitleEditText.text.toString()

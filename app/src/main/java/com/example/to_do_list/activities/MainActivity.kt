@@ -50,7 +50,12 @@ class MainActivity : AppCompatActivity() {
 
         //taskList = taskDAO.findAll()
 
-        adapter = TaskAdapter(emptyList()) {
+        adapter = TaskAdapter(emptyList()) { position ->
+            val task = taskList[position]
+
+            val intent = Intent (this, TaskActivity::class.java)
+            intent.putExtra(TaskActivity.TASK_ID, task.id)
+            startActivity(intent)
 
         }
 
