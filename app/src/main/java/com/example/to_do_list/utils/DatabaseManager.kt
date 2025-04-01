@@ -1,10 +1,10 @@
-package com.example.to_do_list
+package com.example.to_do_list.utils
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import android.view.View.OnCreateContextMenuListener
+import com.example.to_do_list.data.Task
 
 class DatabaseManager (context: Context) : SQLiteOpenHelper (context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {

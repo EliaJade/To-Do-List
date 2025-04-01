@@ -1,4 +1,4 @@
-package com.example.to_do_list
+package com.example.to_do_list.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.to_do_list.R
+import com.example.to_do_list.data.Task
+import com.example.to_do_list.adapters.TaskAdapter
+import com.example.to_do_list.data.TaskDAO
 import com.example.to_do_list.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

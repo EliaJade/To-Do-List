@@ -1,8 +1,9 @@
-package com.example.to_do_list
+package com.example.to_do_list.data
 
 import android.content.ContentValues
 import android.content.Context
 import android.util.Log
+import com.example.to_do_list.utils.DatabaseManager
 
 class TaskDAO(context: Context) {
 

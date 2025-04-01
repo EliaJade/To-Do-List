@@ -1,9 +1,10 @@
-package com.example.to_do_list
+package com.example.to_do_list.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.to_do_list.data.Task
 import com.example.to_do_list.databinding.ItemTaskBinding
 
 class TaskAdapter (var items: List<Task>, val onClick: (Int) -> Unit) : Adapter<TaskViewHolder>() {

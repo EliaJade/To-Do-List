@@ -1,4 +1,4 @@
-package com.example.to_do_list
+package com.example.to_do_list.data
 
 class Task (
     val id: Long,
