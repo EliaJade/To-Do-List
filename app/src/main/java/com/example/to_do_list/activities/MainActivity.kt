@@ -1,5 +1,6 @@
 package com.example.to_do_list.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -47,13 +48,24 @@ class MainActivity : AppCompatActivity() {
 
         taskDAO = TaskDAO(this)
 
-        taskList = taskDAO.findAll()
+        //taskList = taskDAO.findAll()
 
-        adapter = TaskAdapter(taskList) {
+        adapter = TaskAdapter(emptyList()) {
 
         }
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+
+        binding.addTaskButton.setOnClickListener {
+            val intent = Intent (this, TaskActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        taskList = taskDAO.findAll()
+        adapter.updateTasks(taskList)
     }
 }

@@ -133,6 +133,7 @@ class TaskDAO(context: Context) {
                 val done = cursor.getInt(cursor.getColumnIndexOrThrow(Task.COLUMN_NAME_DONE)) != 0
 
                 val task = Task(itemId, title, done)
+                taskList.add(task)
             }
         } catch (e: Exception) {
             e.printStackTrace()

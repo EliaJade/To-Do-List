@@ -3,7 +3,7 @@ package com.example.to_do_list.data
 class Task (
     val id: Long,
     val title: String,
-    var done: Boolean
+    var done: Boolean = false
 ){
 companion object {
     const val COLUMN_NAME_ID = "id"

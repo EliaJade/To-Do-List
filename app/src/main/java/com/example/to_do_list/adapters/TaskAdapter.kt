@@ -27,6 +27,11 @@ class TaskAdapter (var items: List<Task>, val onClick: (Int) -> Unit) : Adapter<
         }
     }
 
+    fun updateTasks (newTasks: List<Task>){
+
+        this.items = newTasks
+        notifyDataSetChanged()
+}
 
 }
 
