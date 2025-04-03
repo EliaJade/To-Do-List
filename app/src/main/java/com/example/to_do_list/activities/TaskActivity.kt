@@ -43,9 +43,9 @@ class TaskActivity : AppCompatActivity() {
         if (id != -1L) {
             task = taskDAO.findById(id)!!
             binding.taskTitleEditText.setText(task.title)
-            supportActionBar?.title = ""
+            supportActionBar?.title = "Edit Task"
         } else {
-            task = Task (-1, "")
+            task = Task (-1, "Create Task")
             supportActionBar?.title = ""
         }
 
