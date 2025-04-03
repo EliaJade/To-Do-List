@@ -50,14 +50,19 @@ class MainActivity : AppCompatActivity() {
 
         //taskList = taskDAO.findAll()
 
-        adapter = TaskAdapter(emptyList()) { position ->
+        adapter = TaskAdapter(emptyList(), { position ->
             val task = taskList[position]
 
             val intent = Intent (this, TaskActivity::class.java)
             intent.putExtra(TaskActivity.TASK_ID, task.id)
             startActivity(intent)
 
-        }
+        }, { position ->
+            val task = taskList[position]
+
+            taskDAO.delete(task)
+
+        })
 
         supportActionBar?.title = "My To Do List"
 
