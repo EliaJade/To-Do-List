@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
             taskDAO.delete(task)
 
+            refreshData()
         })
 
         supportActionBar?.title = "My To Do List"
@@ -79,7 +80,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        refreshData()
+    }
+
+    fun refreshData() {
         taskList = taskDAO.findAll()
         adapter.updateTasks(taskList)
+
     }
 }
