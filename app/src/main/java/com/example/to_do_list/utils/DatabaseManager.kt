@@ -14,7 +14,7 @@ class DatabaseManager (context: Context) : SQLiteOpenHelper (context, DATABASE_N
         //Los elementos que sale en el database que se pueden quitar y añadir
         private const val SQL_CREATE_TABLE_TASK =
             "CREATE TABLE ${Task.COLUMN_NAME} (" +
-                    "${Task.COLUMN_NAME_ID} INTEGRATE PRIMARY KEY," +
+                    "${Task.COLUMN_NAME_ID} INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "${Task.COLUMN_NAME_TITLE} TEXT," +
                     "${Task.COLUMN_NAME_DONE} BOOLEAN)"
 

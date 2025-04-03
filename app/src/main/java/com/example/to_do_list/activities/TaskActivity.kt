@@ -42,15 +42,23 @@ class TaskActivity : AppCompatActivity() {
 
         if (id != -1L) {
             task = taskDAO.findById(id)!!
+            binding.taskTitleEditText.setText(task.title)
+            supportActionBar?.title = ""
         } else {
             task = Task (-1, "")
+            supportActionBar?.title = ""
         }
 
         binding.saveButton.setOnClickListener {
             val title = binding.taskTitleEditText.text.toString()
-            val task = Task(-1, title)
+            //val task = Task(-1, title)
+            task.title = title
 
+        if (task.id != -1L) {
+            taskDAO.update(task)
+        } else {
             taskDAO.insert(task)
+        }
 
             finish()
         }

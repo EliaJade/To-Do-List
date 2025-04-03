@@ -2,7 +2,7 @@ package com.example.to_do_list.data
 
 class Task (
     val id: Long,
-    val title: String,
+    var title: String,
     var done: Boolean = false
 ){
 companion object {

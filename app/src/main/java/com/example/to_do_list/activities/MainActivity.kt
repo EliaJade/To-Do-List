@@ -59,12 +59,16 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        supportActionBar?.title = "My To Do List"
+
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
         binding.addTaskButton.setOnClickListener {
             val intent = Intent (this, TaskActivity::class.java)
             startActivity(intent)
+
+
         }
     }
 
