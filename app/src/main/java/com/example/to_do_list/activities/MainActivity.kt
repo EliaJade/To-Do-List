@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         //taskList = taskDAO.findAll()
 
-        adapter = TaskAdapter(emptyList(), ::editTask, ::deleteTask)
+        adapter = TaskAdapter(emptyList(), ::editTask, ::deleteTask, ::checkTask)
 
         supportActionBar?.title = "My To Do List"
 
@@ -77,6 +77,14 @@ class MainActivity : AppCompatActivity() {
         taskList = taskDAO.findAll()
         adapter.updateTasks(taskList)
 
+    }
+
+    fun checkTask (position: Int) {
+        val task = taskList[position]
+
+        task.done = !task.done
+        taskDAO.update(task)
+        refreshData()
     }
 
     fun editTask (position: Int) {
@@ -107,8 +115,6 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButton(android.R.string.cancel, null)
             .setIconAttribute(android.R.attr.alertDialogIcon)
             .show()
-
-
 
     }
 }
