@@ -21,7 +21,7 @@ class TaskDAO(context: Context) {
         }
 
         try {
-            val newRowId = db.insert(Task.COLUMN_NAME, null, values)
+            val newRowId = db.insert(Task.TABLE_NAME, null, values)
             Log.i("DATABASE", "Inserted task with id: $newRowId")
         } catch (e:Exception) {
             e.printStackTrace()
@@ -42,7 +42,7 @@ class TaskDAO(context: Context) {
             put(Task.COLUMN_NAME_DONE, task.done)
         }
         try {
-            val updatedRows  = db.update(Task.COLUMN_NAME, values, "${Task.COLUMN_NAME_ID} = ${task.id}", null)
+            val updatedRows  = db.update(Task.TABLE_NAME, values, "${Task.COLUMN_NAME_ID} = ${task.id}", null)
             Log.i("DATABASE", "Updated task with id: $updatedRows")
         } catch (e: Exception) {
             e.printStackTrace()
@@ -55,7 +55,7 @@ class TaskDAO(context: Context) {
         val db = databaseManager.writableDatabase
 
         try {
-            val deletedRows = db.delete(Task.COLUMN_NAME, "${Task.COLUMN_NAME_ID} = ${task.id}", null)
+            val deletedRows = db.delete(Task.TABLE_NAME, "${Task.COLUMN_NAME_ID} = ${task.id}", null)
             Log.i("DATABASE", "Deleted task with id: $deletedRows")
         } catch (e: Exception) {
             e.printStackTrace()
@@ -78,7 +78,7 @@ class TaskDAO(context: Context) {
 
         try {
             val cursor = db.query(
-                Task.COLUMN_NAME,       //THE TABLE TO QUERY
+                Task.TABLE_NAME,       //THE TABLE TO QUERY
                 projection,         //THE ARRAY OF COLUMNS TO RETURN ( PASS NULL TO GET ALL)
                 selection,          //THE COLUMNS FOR THE where CLAUSE
                 null,   //THE VALUES FOR THE where CLAUSE
@@ -117,7 +117,7 @@ class TaskDAO(context: Context) {
 
         try {
             val cursor = db.query(
-                Task.COLUMN_NAME,       //THE TABLE TO QUERY
+                Task.TABLE_NAME,       //THE TABLE TO QUERY
                 projection,             //THE ARRAY OF COLUMNS TO RETURN ( PASS NULL TO GET ALL)
                 null,          //THE COLUMNS FOR THE where CLAUSE
                 null,       //THE VALUES FOR THE where CLAUSE
