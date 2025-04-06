@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
         val task = taskList[position]
 
         AlertDialog.Builder(this)
-            .setTitle("Delete Task" )
+            .setTitle("Delete Task:" )
             .setMessage("Are you sure you want to delete: ${task.title}?") // Specifying a listener allows you to take an action before dismissing the dialog.
             // The dialog is automatically dismissed when a dialog button is clicked.
 

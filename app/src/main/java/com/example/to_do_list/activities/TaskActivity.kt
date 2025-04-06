@@ -45,8 +45,8 @@ class TaskActivity : AppCompatActivity() {
             binding.taskTitleEditText.setText(task.title)
             supportActionBar?.title = "Edit Task"
         } else {
-            task = Task (-1, "Create Task")
-            supportActionBar?.title = ""
+            task = Task (-1, "")
+            supportActionBar?.title = "Create Task"
         }
 
         binding.saveButton.setOnClickListener {
